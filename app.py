@@ -106,6 +106,8 @@ def main():
     plt.xlabel("Timestamp")
     plt.ylabel("Tide Level")
     plt.legend()
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
     buf = io.BytesIO()
     plt.savefig(buf, format="png", dpi=150, bbox_inches="tight")
     buf.seek(0)

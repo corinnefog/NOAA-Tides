@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: noaa-tides-cronjob
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: noaa-tides
+            image: ghcr.io/corinnefog/noaa-tides:latest
+            env:
+            - name: DYNAMODB_TABLE
+              value: "noaa-tides"
+            - name: S3_BUCKET
+              value: "dp2-ds5220"
+            - name: AWS_REGION
+              value: "us-east-1"
+          restartPolicy: Never
+      backoffLimit: 2
