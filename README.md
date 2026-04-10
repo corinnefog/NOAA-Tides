@@ -1,4 +1,4 @@
-#NOAA Tides Data Collection Pipeline
+# NOAA Tides Data Collection Pipeline
 
 This application pulls from the NOAA Tides database that updates every 6 minutes with observed tides data, and verifies that data hours after. This project pulls from 6 hours previous to the time the run is triggered to collect verified data only. It is then compared to what NOAA predicted the tide level would be at that time. The data is from Sewells Point which is the station collecting data in the Virginia Beach/Norfolk area. This was chosen because it is near my hometown.
 
